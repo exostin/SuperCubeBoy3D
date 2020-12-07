@@ -2,8 +2,7 @@
 
 ### Game page: https://exostin.itch.io/super-cube-boy-3d
 
-### Trailer: 
-[![Youtube Trailer](https://img.youtube.com/vi/msFkwNSeoG0/maxresdefault.jpg)](https://www.youtube.com/watch?v=msFkwNSeoG0)
+## [Watch the trailer](https://www.youtube.com/watch?v=msFkwNSeoG0)
 
 ## First level: 
 ![First level screenshot](/Screenshots/FirstLevel.png)

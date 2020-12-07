@@ -2,12 +2,17 @@
 
 ### Game page: https://exostin.itch.io/super-cube-boy-3d
 
-### Trailer: https://www.youtube.com/watch?v=msFkwNSeoG0
+### Trailer: 
+[![Youtube Trailer](https://img.youtube.com/vi/msFkwNSeoG0/maxresdefault.jpg)](https://www.youtube.com/watch?v=msFkwNSeoG0)
 
-First level: https://img.itch.zone/aW1hZ2UvNTkxNDA1LzM0NTI5NzcucG5n/original/kroIqU.png
+## First level: 
+![First level screenshot](/Screenshots/FirstLevel.png)
 
-Second level: https://img.itch.zone/aW1hZ2UvNTkxNDA1LzM0NTI5NzgucG5n/original/fDpuu%2B.png
+## Second level: 
+![Second level screenshot](/Screenshots/SecondLevel.png)
 
-Third level: https://img.itch.zone/aW1hZ2UvNTkxNDA1LzM0NTI5NzkucG5n/original/a1pxO9.png
+## Third level: 
+![Third level screenshot](/Screenshots/ThirdLevel.png)
 
-Fourth level: https://img.itch.zone/aW1hZ2UvNTkxNDA1LzM0NTI5ODAucG5n/original/DgHYQJ.png
+## Fourth level: 
+![Fourth level screenshot](/Screenshots/FourthLevel.png)

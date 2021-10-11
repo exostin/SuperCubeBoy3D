@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class CrateSpawner : MonoBehaviour
 {
-    public GameObject crate;
     public Transform playerTransform;
-    public float crateSpawnTime = 0.405f;
+    public GameObject crate;
+    public float crateSpawnDelay = 0.405f;
 
     // Variables used to determine where the crate will spawn on x axis.
     private float[] crateSpawnPositionsRangeOnX = { -5.5f, -3.5f, -1.5f, 1.5f, 3.5f, 5.5f };
@@ -24,14 +24,12 @@ public class CrateSpawner : MonoBehaviour
         while (true)
         {
             SpawnCrate();
-            yield return new WaitForSeconds(crateSpawnTime);
+            yield return new WaitForSeconds(crateSpawnDelay);
         }
     }
 
     private void SpawnCrate()
     {
-        // If crate.z - player pos.z < 384????
-
         // Loop preventing crates being spawned at the same or close-by position.
         lastRandomIndex = currentRandomIndex;
         currentRandomIndex = Random.Range(0, crateSpawnPositionsRangeOnX.Length);
@@ -44,12 +42,12 @@ public class CrateSpawner : MonoBehaviour
                 currentRandomIndex == lastRandomIndex + 1 ||
                 currentRandomIndex == lastRandomIndex - 1);
         }
-        float cratePosX = crateSpawnPositionsRangeOnX[currentRandomIndex];
-        float cratePosZ = currentCratePositionZ + 8f;
-        currentCratePositionZ = cratePosZ;
+        float cratePositionX = crateSpawnPositionsRangeOnX[currentRandomIndex];
+        float cratePositionZ = currentCratePositionZ + 8f;
+        currentCratePositionZ = cratePositionZ;
 
         // Spawn "Crate(Clone)" and assign it under "Obstacles" parent.
-        var crateClone = Instantiate(crate, new Vector3(cratePosX, 0.5f, cratePosZ), Quaternion.identity);
+        var crateClone = Instantiate(crate, new Vector3(cratePositionX, 0.5f, cratePositionZ), Quaternion.identity);
         crateClone.transform.parent = GameObject.Find("Obstacles").transform;
     }
 }

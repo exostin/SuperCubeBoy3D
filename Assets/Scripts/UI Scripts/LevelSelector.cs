@@ -2,90 +2,77 @@
 using System.Collections.Generic;
 using UnityEngine.Rendering;
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.Rendering.HighDefinition;
 
 public class LevelSelector : MonoBehaviour
 {
+    private GameManager gameManager;
+    public GameObject postprocessing;
+    public Camera cameraGO;
+    public GameObject obstaclesParent;
+    public GameObject crateSpawner;
     public GameObject player, obstacle, platform, leftBoundary, rightBoundary;
-    private GameManager gm;
+    public AudioSource backgroundMusicSource;
+    public GameObject difficultyCheckpoint;
+    public GameObject cometParticles;
+    public Material[] playerMaterials, obstacleMaterials, platformMaterials, boundaryMaterials;
+    public AudioClip[] backgroundMusicClips;
+    public VolumeProfile[] postprocessingVolumeProfiles;
 
-    //private Material playerMaterial, obstacleMaterial, platformMaterial, leftBoundaryMaterial, rightBoundaryMaterial;
+    public int CurrentLevelIndex { get; set; } = 0;
+    
 
     private void Start()
     {
-        gm = FindObjectOfType<GameManager>();
-        //playerMaterial = player.GetComponent<Material>();
-        //obstacleMaterial = obstacle.GetComponent<Material>();
-        //platformMaterial = platform.GetComponent<Material>();
-        //leftBoundaryMaterial = leftBoundary.GetComponent<Material>();
-        //rightBoundaryMaterial = rightBoundary.GetComponent<Material>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
-    public void ChangeLevel(int lvlIndex)
+    public void ChangeLevel()
     {
-        switch (lvlIndex)
+        gameManager.PlayerDeath();
+        player.transform.position = new Vector3(0f, 0.5f, 0f);
+        difficultyCheckpoint.transform.position = new Vector3(0f, 2f, 200f);
+
+        // delete all generated obstacles
+        foreach (Transform child in obstaclesParent.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+        cometParticles.SetActive(false);
+
+        // Change post process profile to lvlIndex from profiles array
+        postprocessing.GetComponent<Volume>().profile = postprocessingVolumeProfiles[CurrentLevelIndex];
+        // Change map materials
+        player.GetComponent<MeshRenderer>().material = playerMaterials[CurrentLevelIndex];
+        obstacle.GetComponent<MeshRenderer>().material = obstacleMaterials[CurrentLevelIndex];
+        platform.GetComponent<MeshRenderer>().material = platformMaterials[CurrentLevelIndex];
+        leftBoundary.GetComponent<MeshRenderer>().material = boundaryMaterials[CurrentLevelIndex];
+        rightBoundary.GetComponent<MeshRenderer>().material = boundaryMaterials[CurrentLevelIndex];
+        // Change the speed variable of player object
+        player.GetComponent<PlayerMovement>().forwardForce = 650f;
+        player.GetComponent<PlayerMovement>().sidewaysForce = 550f;
+        // Change the music
+        backgroundMusicSource.clip = backgroundMusicClips[CurrentLevelIndex];
+        backgroundMusicSource.Play();
+
+        // change camera values
+        switch (CurrentLevelIndex)
         {
             case 0:
-                gm.PlayerDeath();
-                // Start the loading screen
-                // Change post process profile to index 0 from profiles array
-                // Change material of platform
-                // Change material of boundaries
-                // Change material of player
-                // Change material of obstacles
-                // Change the speed variable of player object
-                // Change the music
-                // End the loading screen
+                cameraGO.GetComponent<HDAdditionalCameraData>().clearColorMode = HDAdditionalCameraData.ClearColorMode.Sky;
                 break;
-
             case 1:
-                gm.PlayerDeath();
-                // Call PlayerDeath;
-                // Start the loading screen
-                // Reset player position
-                // Change post process profile to index 0 from profiles array
-                // Change material of platform
-                // Change material of boundaries
-                // Change material of player
-                // Change material of obstacles
-                // Change the speed variable of player object
-                // Change the music
-                // End the loading screen
+                cameraGO.GetComponent<HDAdditionalCameraData>().clearColorMode = HDAdditionalCameraData.ClearColorMode.None;
                 break;
-
             case 2:
-                gm.PlayerDeath();
-                // Call PlayerDeath;
-                // Start the loading screen
-                // Reset player position
-                // Change post process profile to index 0 from profiles array
-                // Change material of platform
-                // Change material of boundaries
-                // Change material of player
-                // Change material of obstacles
-                // Change the speed variable of player object
-                // Change the music
-                // End the loading screen
-                break;
-
-            case 3:
-                gm.PlayerDeath();
-                // Call PlayerDeath;
-                // Start the loading screen
-                // Reset player position
-                // Change post process profile to index 0 from profiles array
-                // Change material of platform
-                // Change material of boundaries
-                // Change material of player
-                // Change material of obstacles
-                // Change the speed variable of player object
-                // Change the music
-                // End the loading screen
-                break;
-
-            default:
-                Debug.Log("Wrong index input received into ChangeLevel function! (LevelSelector.cs)");
+                cameraGO.GetComponent<HDAdditionalCameraData>().clearColorMode = HDAdditionalCameraData.ClearColorMode.Color;
+                cameraGO.GetComponent<HDAdditionalCameraData>().backgroundColorHDR = Color.black;
+                cometParticles.SetActive(true);
                 break;
         }
+
+        crateSpawner.GetComponent<CrateSpawner>().StartCrateSpawning();
     }
 
     public void ExitButton()

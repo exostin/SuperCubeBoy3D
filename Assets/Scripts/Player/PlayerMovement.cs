@@ -72,6 +72,23 @@ public class PlayerMovement : MonoBehaviour
         {
             audioMuteWasToggledByInput = true;
         }
+
+        // Level selection
+        if (kb.digit1Key.wasReleasedThisFrame)
+        {
+            gm.levelSelectorGameObject.GetComponent<LevelSelector>().CurrentLevelIndex = 0;
+            gm.levelSelectorGameObject.GetComponent<LevelSelector>().ChangeLevel();
+        }
+        if (kb.digit2Key.wasReleasedThisFrame)
+        {
+            gm.levelSelectorGameObject.GetComponent<LevelSelector>().CurrentLevelIndex = 1;
+            gm.levelSelectorGameObject.GetComponent<LevelSelector>().ChangeLevel();
+        }
+        if (kb.digit3Key.wasReleasedThisFrame)
+        {
+            gm.levelSelectorGameObject.GetComponent<LevelSelector>().CurrentLevelIndex = 2;
+            gm.levelSelectorGameObject.GetComponent<LevelSelector>().ChangeLevel();
+        }
     }
 
     private void FixedUpdate()

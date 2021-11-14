@@ -11,20 +11,19 @@ public class GameManager : MonoBehaviour
 
     private GameObject[] audioObjects;
 
-    public GameObject pauseScreenGO;
-    public GameObject timeManagerGO;
-
-    private TimeManager timeManager;
+    public GameObject pauseMenu;
+    public GameObject timeManager;
+    public GameObject levelSelectorGameObject;
 
     private void Start()
     {
-        timeManager = timeManagerGO.GetComponent<TimeManager>();
         audioObjects = GameObject.FindGameObjectsWithTag("Audio");
     }
 
     public void PlayerRespawn()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        levelSelectorGameObject.GetComponent<LevelSelector>().ChangeLevel();
     }
 
     public void PlayerDeath()
@@ -47,13 +46,13 @@ public class GameManager : MonoBehaviour
 
         if (pauseMenuIsToggledOnNow)
         {
-            timeManager.SlowMotion();
-            pauseScreenGO.SetActive(true);
+            timeManager.GetComponent<TimeManager>().SlowMotion();
+            pauseMenu.SetActive(true);
         }
         else
         {
-            timeManager.NormalMotion();
-            pauseScreenGO.SetActive(false);
+            timeManager.GetComponent<TimeManager>().NormalMotion();
+            pauseMenu.SetActive(false);
         }
     }
 }

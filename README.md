@@ -3,9 +3,7 @@ This is the first game I've ever worked on, and I decided to upload it to github
 
 In short the player is a red cube and the only objective is to dodge obstacles coming at you at increasing speed.
 
-And you can download and play a couple of previous builds of the game from **Releases** tab.
-
-### Game page: https://exostin.itch.io/super-cube-boy-3d
+And you can download and play the game from **Releases** tab on the right.
 
 ## [Watch the trailer](https://www.youtube.com/watch?v=msFkwNSeoG0)
 

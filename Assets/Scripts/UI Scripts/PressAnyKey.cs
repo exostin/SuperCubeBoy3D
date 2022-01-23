@@ -7,11 +7,11 @@ using UnityEngine.SceneManagement;
 public class PressAnyKey : MonoBehaviour
 {
     public TextMeshProUGUI pressAnyKeyText;
+    private string dots;
+    private readonly float dottingInterval = 0.6f;
+    private bool dottingRunning = true;
 
     private Keyboard kb;
-    private float dottingInterval = 0.6f;
-    private bool dottingRunning = true;
-    private string dots;
 
     private void Start()
     {
@@ -31,14 +31,12 @@ public class PressAnyKey : MonoBehaviour
     private IEnumerator AnyKeyDotting()
     {
         while (dottingRunning)
-        {
-            for (int i = 0; i < 4; i++)
+            for (var i = 0; i < 4; i++)
             {
                 dots = new string('.', i);
                 pressAnyKeyText.SetText("Press any key to continue" + dots);
 
                 yield return new WaitForSeconds(dottingInterval);
             }
-        }
     }
 }

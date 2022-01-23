@@ -18,6 +18,7 @@ public class PlayerPrefsInitialize : MonoBehaviour
             PlayerPrefs.SetFloat("SoundVolume", 0);
             PlayerPrefs.Save();
         }
+
         usedFullScreenMode = PlayerPrefs.GetInt("FullScreenMode");
         usedMusicVolume = PlayerPrefs.GetFloat("MusicVolume");
         usedSoundVolume = PlayerPrefs.GetFloat("SoundVolume");

@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class ImageTransparencyTransition : MonoBehaviour
 {
-    private Image image;
     private Color32 color;
+    private Image image;
 
     private void Start()
     {
@@ -22,6 +22,7 @@ public class ImageTransparencyTransition : MonoBehaviour
             image.color = color;
             yield return new WaitForSeconds(0.0000001f);
         }
+
         color.a = 0;
         image.color = color;
     }

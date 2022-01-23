@@ -7,14 +7,13 @@ public class SettingsMenuController : MonoBehaviour
 {
     public AudioMixer audioMixerMusic, audioMixerSounds;
 
-    [Header("Settings fields")]
-    public TMP_Dropdown fullScreenDropdown;
+    [Header("Settings fields")] public TMP_Dropdown fullScreenDropdown;
 
     public Slider musicSlider, soundSlider;
+    private int usedFullScreenMode;
 
     private float usedMusicVolume;
     private float usedSoundVolume;
-    private int usedFullScreenMode;
 
     private void Awake()
     {

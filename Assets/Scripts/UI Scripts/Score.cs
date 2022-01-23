@@ -14,7 +14,7 @@ public class Score : MonoBehaviour
 
     public IEnumerator TextFade()
     {
-        for (int i = 70; i < 130; i += 5)
+        for (var i = 70; i < 130; i += 5)
         {
             scoreTracker.fontSize = i;
             yield return new WaitForSeconds(0.00001f);

@@ -8,8 +8,8 @@ public class PlayerCollision : MonoBehaviour
     // Component variables
 
     private GameManager gm;
-    private Score scoreScript;
     private PlayerMovement pMovement;
+    private Score scoreScript;
 
     private void Start()
     {

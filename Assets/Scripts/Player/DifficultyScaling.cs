@@ -18,9 +18,6 @@ public class DifficultyScaling : MonoBehaviour
 
     private void OnTriggerExit(Collider playerCollision2)
     {
-        if (playerCollision2.gameObject.CompareTag("Player"))
-        {
-            barrierTransform.Translate(0f, 0f, 20f);
-        }
+        if (playerCollision2.gameObject.CompareTag("Player")) barrierTransform.Translate(0f, 0f, 20f);
     }
 }

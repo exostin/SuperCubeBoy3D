@@ -4,17 +4,17 @@ using UnityEngine.Rendering.HighDefinition;
 
 public class LevelSelector : MonoBehaviour
 {
-    public GameObject postprocessing;
-    public Camera cameraGO;
-    public GameObject obstaclesParent;
-    public GameObject crateSpawner;
-    public GameObject player, obstacle, platform, leftBoundary, rightBoundary;
-    public AudioSource backgroundMusicSource;
-    public GameObject difficultyCheckpoint;
-    public GameObject cometParticles;
-    public Material[] playerMaterials, obstacleMaterials, platformMaterials, boundaryMaterials;
-    public AudioClip[] backgroundMusicClips;
-    public VolumeProfile[] postprocessingVolumeProfiles;
+    [SerializeField] private GameObject postprocessing;
+    [SerializeField] private Camera cameraGo;
+    [SerializeField] private GameObject obstaclesParent;
+    [SerializeField] private GameObject crateSpawner;
+    [SerializeField] private GameObject player, obstacle, platform, leftBoundary, rightBoundary;
+    [SerializeField] private AudioSource backgroundMusicSource;
+    [SerializeField] private GameObject difficultyCheckpoint;
+    [SerializeField] private GameObject cometParticles;
+    [SerializeField] private Material[] playerMaterials, obstacleMaterials, platformMaterials, boundaryMaterials;
+    [SerializeField] private AudioClip[] backgroundMusicClips;
+    [SerializeField] private VolumeProfile[] postprocessingVolumeProfiles;
     private GameManager gameManager;
 
     public int CurrentLevelIndex { get; set; }
@@ -54,17 +54,17 @@ public class LevelSelector : MonoBehaviour
         switch (CurrentLevelIndex)
         {
             case 0:
-                cameraGO.GetComponent<HDAdditionalCameraData>().clearColorMode =
+                cameraGo.GetComponent<HDAdditionalCameraData>().clearColorMode =
                     HDAdditionalCameraData.ClearColorMode.Sky;
                 break;
             case 1:
-                cameraGO.GetComponent<HDAdditionalCameraData>().clearColorMode =
+                cameraGo.GetComponent<HDAdditionalCameraData>().clearColorMode =
                     HDAdditionalCameraData.ClearColorMode.None;
                 break;
             case 2:
-                cameraGO.GetComponent<HDAdditionalCameraData>().clearColorMode =
+                cameraGo.GetComponent<HDAdditionalCameraData>().clearColorMode =
                     HDAdditionalCameraData.ClearColorMode.Color;
-                cameraGO.GetComponent<HDAdditionalCameraData>().backgroundColorHDR = Color.black;
+                cameraGo.GetComponent<HDAdditionalCameraData>().backgroundColorHDR = Color.black;
                 cometParticles.SetActive(true);
                 break;
         }

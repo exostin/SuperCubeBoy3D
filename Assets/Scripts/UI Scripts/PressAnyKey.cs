@@ -4,39 +4,42 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class PressAnyKey : MonoBehaviour
+namespace UI_Scripts
 {
-    public TextMeshProUGUI pressAnyKeyText;
-    private string dots;
-    private readonly float dottingInterval = 0.6f;
-    private bool dottingRunning = true;
-
-    private Keyboard kb;
-
-    private void Start()
+    public class PressAnyKey : MonoBehaviour
     {
-        kb = InputSystem.GetDevice<Keyboard>();
-        StartCoroutine(AnyKeyDotting());
-    }
+        [SerializeField] private TextMeshProUGUI pressAnyKeyText;
+        private readonly float dottingInterval = 0.6f;
+        private string dots;
+        private bool dottingRunning = true;
 
-    private void Update()
-    {
-        if (kb.anyKey.wasReleasedThisFrame)
+        private Keyboard kb;
+
+        private void Start()
         {
-            dottingRunning = false;
-            SceneManager.LoadScene(1);
+            kb = InputSystem.GetDevice<Keyboard>();
+            StartCoroutine(AnyKeyDotting());
         }
-    }
 
-    private IEnumerator AnyKeyDotting()
-    {
-        while (dottingRunning)
-            for (var i = 0; i < 4; i++)
+        private void Update()
+        {
+            if (kb.anyKey.wasReleasedThisFrame)
             {
-                dots = new string('.', i);
-                pressAnyKeyText.SetText("Press any key to continue" + dots);
-
-                yield return new WaitForSeconds(dottingInterval);
+                dottingRunning = false;
+                SceneManager.LoadScene(1);
             }
+        }
+
+        private IEnumerator AnyKeyDotting()
+        {
+            while (dottingRunning)
+                for (var i = 0; i < 4; i++)
+                {
+                    dots = new string('.', i);
+                    pressAnyKeyText.SetText("Press any key to continue" + dots);
+
+                    yield return new WaitForSeconds(dottingInterval);
+                }
+        }
     }
 }

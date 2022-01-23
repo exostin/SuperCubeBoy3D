@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class GetVersion : MonoBehaviour
 {
-    public TextMeshProUGUI versionText;
+    [SerializeField] private TextMeshProUGUI versionText;
 
     private void Start()
     {

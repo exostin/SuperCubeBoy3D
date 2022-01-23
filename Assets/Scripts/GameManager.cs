@@ -1,12 +1,13 @@
-﻿using UnityEngine;
+﻿using UI_Scripts;
+using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [Tooltip("Sound played on player death")]
-    public AudioClip audioDeathSound;
+    [Tooltip("Sound played on player death")] [SerializeField]
+    private AudioClip audioDeathSound;
 
-    public GameObject pauseMenu;
-    public GameObject timeManager;
+    [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject timeManager;
     public GameObject levelSelectorGameObject;
 
     private bool audioIsMutedRightNow;
@@ -32,8 +33,9 @@ public class GameManager : MonoBehaviour
 
     public void ToggleAudioMute()
     {
-        for (var i = 0; i < audioObjects.Length; i++)
-            audioObjects[i].GetComponent<AudioSource>().mute = !audioIsMutedRightNow;
+        foreach (var a in audioObjects)
+            a.GetComponent<AudioSource>().mute = !audioIsMutedRightNow;
+
         audioIsMutedRightNow = !audioIsMutedRightNow;
     }
 

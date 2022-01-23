@@ -4,9 +4,9 @@ using UnityEngine;
 public class CrateSpawner : MonoBehaviour
 {
     private const float DefaultCratePositionZ = 16f;
-    public Transform playerTransform;
-    public GameObject crate;
-    public float crateSpawnDelay = 0.405f;
+    [SerializeField] private Transform playerTransform;
+    [SerializeField] private GameObject crate;
+    [SerializeField] private float crateSpawnDelay = 0.405f;
 
     // Variables used to determine where the crate will spawn on x axis.
     private readonly float[] crateSpawnPositionsRangeOnX = {-5.5f, -3.5f, -1.5f, 1.5f, 3.5f, 5.5f};

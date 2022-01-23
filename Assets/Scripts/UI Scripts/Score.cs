@@ -2,22 +2,25 @@
 using TMPro;
 using UnityEngine;
 
-public class Score : MonoBehaviour
+namespace UI_Scripts
 {
-    public Transform playerTransform;
-    public TextMeshProUGUI scoreTracker;
-
-    private void Update()
+    public class Score : MonoBehaviour
     {
-        scoreTracker.text = playerTransform.position.z.ToString("0");
-    }
+        [SerializeField] private Transform playerTransform;
+        [SerializeField] private TextMeshProUGUI scoreTracker;
 
-    public IEnumerator TextFade()
-    {
-        for (var i = 70; i < 130; i += 5)
+        private void Update()
         {
-            scoreTracker.fontSize = i;
-            yield return new WaitForSeconds(0.00001f);
+            scoreTracker.text = playerTransform.position.z.ToString("0");
+        }
+
+        public IEnumerator TextFade()
+        {
+            for (var i = 70; i < 130; i += 5)
+            {
+                scoreTracker.fontSize = i;
+                yield return new WaitForSeconds(0.00001f);
+            }
         }
     }
 }

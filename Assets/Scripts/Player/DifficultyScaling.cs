@@ -2,10 +2,10 @@
 
 public class DifficultyScaling : MonoBehaviour
 {
-    public PlayerMovement playerMovement;
-    public Transform barrierTransform;
+    [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private Transform barrierTransform;
 
-    public float difficultySpeedScalingValue = 10;
+    [SerializeField] private float difficultySpeedScalingValue = 10;
 
     private void OnTriggerEnter(Collider playerCollision1)
     {

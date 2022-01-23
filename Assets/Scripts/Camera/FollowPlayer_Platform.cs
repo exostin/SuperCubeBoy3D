@@ -2,7 +2,7 @@
 
 public class FollowPlayer_Platform : MonoBehaviour
 {
-    public Transform playerTransform;
+    [SerializeField] private Transform playerTransform;
 
     private readonly float platformDistance = -173f;
 

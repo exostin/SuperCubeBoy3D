@@ -3,11 +3,11 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Movement pysics")] public float forwardForce = 650f;
+    [Header("Movement physics")] public float forwardForce = 650f;
 
     public float sidewaysForce = 550f;
 
-    private bool aKeyPressed;
+    [SerializeField] private bool aKeyPressed;
 
     private bool audioMuteWasToggledByInput;
     private bool dKeyPressed;

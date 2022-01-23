@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using UI_Scripts;
+using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
-    public GameObject scoreTracker;
-    public GameObject player;
+    [SerializeField] private GameObject scoreTracker;
+    [SerializeField] private GameObject player;
 
     // Component variables
 

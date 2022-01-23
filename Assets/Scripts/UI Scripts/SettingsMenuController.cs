@@ -3,77 +3,81 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
-public class SettingsMenuController : MonoBehaviour
+namespace UI_Scripts
 {
-    public AudioMixer audioMixerMusic, audioMixerSounds;
-
-    [Header("Settings fields")] public TMP_Dropdown fullScreenDropdown;
-
-    public Slider musicSlider, soundSlider;
-    private int usedFullScreenMode;
-
-    private float usedMusicVolume;
-    private float usedSoundVolume;
-
-    private void Awake()
+    public class SettingsMenuController : MonoBehaviour
     {
-        usedMusicVolume = PlayerPrefs.GetFloat("MusicVolume");
-        usedSoundVolume = PlayerPrefs.GetFloat("SoundVolume");
-        usedFullScreenMode = PlayerPrefs.GetInt("FullScreenMode");
+        [SerializeField] private AudioMixer audioMixerMusic, audioMixerSounds;
 
-        SetFullScreenMode(usedFullScreenMode);
-        SettingsSetMusicVolume();
-        SettingsSetSoundsVolume();
+        [Header("Settings fields")] [SerializeField]
+        private TMP_Dropdown fullScreenDropdown;
 
-        fullScreenDropdown.value = usedFullScreenMode;
-        musicSlider.value = usedMusicVolume;
-        soundSlider.value = usedSoundVolume;
-    }
+        [SerializeField] private Slider musicSlider, soundSlider;
+        private int usedFullScreenMode;
 
-    public void SetFullScreenMode(int fullScreenModeIndex)
-    {
-        switch (fullScreenModeIndex)
+        private float usedMusicVolume;
+        private float usedSoundVolume;
+
+        private void Awake()
         {
-            case 0:
-                Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
-                Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, true);
-                PlayerPrefs.SetInt("FullScreenMode", 0);
-                break;
+            usedMusicVolume = PlayerPrefs.GetFloat("MusicVolume");
+            usedSoundVolume = PlayerPrefs.GetFloat("SoundVolume");
+            usedFullScreenMode = PlayerPrefs.GetInt("FullScreenMode");
 
-            case 1:
-                Screen.fullScreenMode = FullScreenMode.Windowed;
-                Screen.SetResolution(1280, 720, false);
-                PlayerPrefs.SetInt("FullScreenMode", 1);
-                break;
+            SetFullScreenMode(usedFullScreenMode);
+            SettingsSetMusicVolume();
+            SettingsSetSoundsVolume();
+
+            fullScreenDropdown.value = usedFullScreenMode;
+            musicSlider.value = usedMusicVolume;
+            soundSlider.value = usedSoundVolume;
         }
-    }
 
-    public void SettingsSetMusicVolumeValue(float dynamicallySetMusicVolume)
-    {
-        usedMusicVolume = dynamicallySetMusicVolume;
-        PlayerPrefs.SetFloat("MusicVolume", usedMusicVolume);
-        SettingsSetMusicVolume();
-    }
+        public void SetFullScreenMode(int fullScreenModeIndex)
+        {
+            switch (fullScreenModeIndex)
+            {
+                case 0:
+                    Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
+                    Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, true);
+                    PlayerPrefs.SetInt("FullScreenMode", 0);
+                    break;
 
-    public void SettingsSetMusicVolume()
-    {
-        audioMixerMusic.SetFloat("MusicVolume", usedMusicVolume);
-    }
+                case 1:
+                    Screen.fullScreenMode = FullScreenMode.Windowed;
+                    Screen.SetResolution(1280, 720, false);
+                    PlayerPrefs.SetInt("FullScreenMode", 1);
+                    break;
+            }
+        }
 
-    public void SettingsSetSoundsVolumeValue(float dynamicallySetSoundVolume)
-    {
-        usedSoundVolume = dynamicallySetSoundVolume;
-        PlayerPrefs.SetFloat("SoundVolume", usedSoundVolume);
-        SettingsSetSoundsVolume();
-    }
+        public void SettingsSetMusicVolumeValue(float dynamicallySetMusicVolume)
+        {
+            usedMusicVolume = dynamicallySetMusicVolume;
+            PlayerPrefs.SetFloat("MusicVolume", usedMusicVolume);
+            SettingsSetMusicVolume();
+        }
 
-    public void SettingsSetSoundsVolume()
-    {
-        audioMixerSounds.SetFloat("SoundVolume", usedSoundVolume);
-    }
+        public void SettingsSetMusicVolume()
+        {
+            audioMixerMusic.SetFloat("MusicVolume", usedMusicVolume);
+        }
 
-    public void SavePreferences()
-    {
-        PlayerPrefs.Save();
+        public void SettingsSetSoundsVolumeValue(float dynamicallySetSoundVolume)
+        {
+            usedSoundVolume = dynamicallySetSoundVolume;
+            PlayerPrefs.SetFloat("SoundVolume", usedSoundVolume);
+            SettingsSetSoundsVolume();
+        }
+
+        public void SettingsSetSoundsVolume()
+        {
+            audioMixerSounds.SetFloat("SoundVolume", usedSoundVolume);
+        }
+
+        public void SavePreferences()
+        {
+            PlayerPrefs.Save();
+        }
     }
 }

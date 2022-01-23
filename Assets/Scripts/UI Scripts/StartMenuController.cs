@@ -2,41 +2,44 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StartMenuController : MonoBehaviour
+namespace UI_Scripts
 {
-    public GameObject menuMusic, backgroundMusic, cube;
-
-    private Animator anim;
-
-    private void Start()
+    public class StartMenuController : MonoBehaviour
     {
-        anim = cube.GetComponent<Animator>();
-    }
+        [SerializeField] private GameObject menuMusic, backgroundMusic, cube;
 
-    // Play button
-    public void StartButton()
-    {
-        StartCoroutine(LoadingAnimation());
-        StartCoroutine(StartItAlready());
-    }
+        private Animator anim;
 
-    private IEnumerator LoadingAnimation()
-    {
-        anim.Play("CubeStartGameRotation", 0, 1f);
-        yield return null;
-    }
+        private void Start()
+        {
+            anim = cube.GetComponent<Animator>();
+        }
 
-    private IEnumerator StartItAlready()
-    {
-        yield return new WaitForSeconds(1f);
-        menuMusic.SetActive(false);
-        //backgroundMusic.SetActive(true);
-        SceneManager.LoadScene(2);
-    }
+        // Play button
+        public void StartButton()
+        {
+            StartCoroutine(LoadingAnimation());
+            StartCoroutine(StartItAlready());
+        }
 
-    // Exit button
-    public void ExitButton()
-    {
-        Application.Quit();
+        private IEnumerator LoadingAnimation()
+        {
+            anim.Play("CubeStartGameRotation", 0, 1f);
+            yield return null;
+        }
+
+        private IEnumerator StartItAlready()
+        {
+            yield return new WaitForSeconds(1f);
+            menuMusic.SetActive(false);
+            //backgroundMusic.SetActive(true);
+            SceneManager.LoadScene(2);
+        }
+
+        // Exit button
+        public void ExitButton()
+        {
+            Application.Quit();
+        }
     }
 }

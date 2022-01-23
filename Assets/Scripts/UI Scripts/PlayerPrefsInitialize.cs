@@ -3,7 +3,7 @@ using UnityEngine.Audio;
 
 public class PlayerPrefsInitialize : MonoBehaviour
 {
-    public AudioMixer audioMixerMusic, audioMixerSounds;
+    [SerializeField] private AudioMixer audioMixerMusic, audioMixerSounds;
 
     private int usedFullScreenMode;
     private float usedMusicVolume;

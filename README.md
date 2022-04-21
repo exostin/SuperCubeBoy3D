@@ -1,20 +1,23 @@
 # Super Cube Boy 3D
-This is the first game I've ever worked on, and I decided to upload it to github only after 3 months of work on it, so the commit history doesn't really show the whole creation process, but it's still better than nothing. 
+_Note: This is the first game I had ever worked on._
 
-In short the player is a red cube and the only objective is to dodge obstacles coming at you at increasing speed.
+You play as a red cube, and your objective is to dodge obstacles coming at you with increasing speed.
+There are four maps and each has a minimalistic (although distinct) style achieved through different post-processing effects and music specifically made to fit different atmospheres.
 
-And you can download and play the game from **Releases** tab on the right.
+You can download and play the game from the [**Releases**](https://github.com/exostin/SuperCubeBoy3D/releases) tab on the right.
 
-## [Watch the trailer](https://www.youtube.com/watch?v=msFkwNSeoG0)
+## Gameplay preview
 
-## First level: 
+[Watch the trailer](https://www.youtube.com/watch?v=msFkwNSeoG0)
+
+### First level: 
 ![First level screenshot](/Screenshots/FirstLevel.png)
 
-## Second level: 
+### Second level: 
 ![Second level screenshot](/Screenshots/SecondLevel.png)
 
-## Third level: 
+### Third level: 
 ![Third level screenshot](/Screenshots/ThirdLevel.png)
 
-## Fourth level: 
+### Fourth level: 
 ![Fourth level screenshot](/Screenshots/FourthLevel.png)

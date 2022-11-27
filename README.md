@@ -1,7 +1,5 @@
 # Super Cube Boy 3D
-_Note: This is the first game I had ever worked on._
-
-You play as a red cube, and your objective is to dodge obstacles coming at you with increasing speed.
+Your objective is to dodge obstacles coming at you with increasing speed.
 There are four maps and each has a minimalistic (although distinct) style achieved through different post-processing effects and music specifically made to fit different atmospheres.
 
 You can download and play the game from the [**Releases**](https://github.com/exostin/SuperCubeBoy3D/releases) tab on the right.

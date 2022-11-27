@@ -6,7 +6,7 @@ You can download and play the game from the [**Releases**](https://github.com/ex
 
 ## Gameplay preview
 
-[Watch the trailer](https://www.youtube.com/watch?v=msFkwNSeoG0)
+[Gameplay video](https://www.youtube.com/watch?v=msFkwNSeoG0)
 
 ### First level: 
 ![First level screenshot](/Screenshots/FirstLevel.png)

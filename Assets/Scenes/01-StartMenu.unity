@@ -1113,7 +1113,7 @@ GameObject:
   - component: {fileID: 110211674}
   - component: {fileID: 110211673}
   m_Layer: 5
-  m_Name: Damian Dorosz
+  m_Name: SuperCubeBoy3D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1159,7 +1159,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Damian Dorosz
+  m_text: SuperCubeBoy3D
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eb0d6a02f82713241800117ce302ee62, type: 2}
   m_sharedMaterial: {fileID: -452105684554126550, guid: eb0d6a02f82713241800117ce302ee62,

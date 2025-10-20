@@ -69,7 +69,7 @@ public class LevelSelector : MonoBehaviour
                 break;
         }
 
-        crateSpawner.GetComponent<CrateSpawner>().StartCrateSpawning();
+        //crateSpawner.GetComponent<CrateSpawner>().StartCrateSpawning();
     }
 
     public void ExitButton()

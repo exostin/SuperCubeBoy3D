@@ -2350,7 +2350,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 420520984}
   crate: {fileID: 2169430149385948848, guid: a9fc4d38f6b9b314e86835e9c780bc05, type: 3}
-  crateSpawnDelay: 0.01
+  poolSize: 15
+  spawnSpacingZ: 8
+  recycleDistanceBehindPlayer: 10
 --- !u!4 &1189803932
 Transform:
   m_ObjectHideFlags: 0
